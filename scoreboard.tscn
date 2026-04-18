@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5ct3b0dt65ex"]
+[gd_scene load_steps=3 format=3 uid="uid://c5ct3b0dt65ex"]
 
 [ext_resource type="Script" uid="uid://brrn6eui8s2fc" path="res://scoreboard.gd" id="1_jeshg"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_jeshg"]
-font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_akwwr"]
 font_size = 82
@@ -18,15 +15,6 @@ grow_vertical = 2
 theme_override_constants/margin_left = 11
 theme_override_constants/margin_top = 12
 script = ExtResource("1_jeshg")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Score" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_jeshg")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 2
