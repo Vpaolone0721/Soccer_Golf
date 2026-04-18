@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://lst6h7rov6re"]
+[gd_scene load_steps=5 format=3 uid="uid://lst6h7rov6re"]
+
+[ext_resource type="Texture2D" uid="uid://cpk1xnpuc3xp6" path="res://Random_Size_Squares_Halftone_Texture_background.jpg" id="1_gk6bx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pa54t"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gk6bx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lww6v"]
-albedo_color = Color(1, 0.3254902, 0.23921569, 1)
+albedo_texture = ExtResource("1_gk6bx")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 11.313722
 
 [node name="Ball" type="RigidBody3D"]
 collision_layer = 2
@@ -14,5 +18,6 @@ collision_layer = 2
 shape = SubResource("SphereShape3D_pa54t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 mesh = SubResource("SphereMesh_gk6bx")
 surface_material_override/0 = SubResource("StandardMaterial3D_lww6v")

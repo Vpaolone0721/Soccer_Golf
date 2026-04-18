@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ct3b0dt65ex"]
+
+[ext_resource type="Script" uid="uid://brrn6eui8s2fc" path="res://scoreboard.gd" id="1_jeshg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jeshg"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_akwwr"]
+font_size = 82
+font_color = Color(0.20784314, 0.8901961, 0, 1)
+
+[node name="Scoreboard" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 11
+theme_override_constants/margin_top = 12
+script = ExtResource("1_jeshg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Score" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_jeshg")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GoalText" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "GOAL!!!"
+label_settings = SubResource("LabelSettings_akwwr")

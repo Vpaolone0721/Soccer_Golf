@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv1nw22on76cj"]
+[gd_scene load_steps=16 format=3 uid="uid://bv1nw22on76cj"]
 
 [ext_resource type="PackedScene" uid="uid://dunj53fj6gwbx" path="res://Player.tscn" id="1_2dftf"]
 [ext_resource type="PackedScene" uid="uid://lst6h7rov6re" path="res://Ball.tscn" id="2_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://culr5pgn5mae6" path="res://Goal_Net.tscn" id="3_bcbcq"]
+[ext_resource type="PackedScene" uid="uid://c5ct3b0dt65ex" path="res://scoreboard.tscn" id="4_js7pq"]
+[ext_resource type="PackedScene" uid="uid://bmm63734s4n8k" path="res://football_field.glb" id="5_eu7l1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_js7pq"]
 
@@ -16,6 +19,21 @@ sky_material = SubResource("ProceduralSkyMaterial_2dftf")
 [sub_resource type="Environment" id="Environment_js7pq"]
 background_mode = 2
 sky = SubResource("Sky_bcbcq")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_p1v5b"]
+points = PackedVector3Array(-4, -6, 0.17373736, -4, -6, 0.5496877, -4, 6, 0.17373736, 4, -6, 0.17373736, 4, -6, 0.5496877, -4, 6, 0.5496877, 4, 6, 0.17373736, 4, 6, 0.5496877)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wygdx"]
+points = PackedVector3Array(-4, -6, -0.5496877, 4, -6, -0.5496877, -4, 6, -0.5496877, 4, 6, -0.5496877)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bah7m"]
+points = PackedVector3Array(-4, -6, 0.5496877, 4, -6, 0.5496877, -4, 6, 0.5496877, 4, 6, 0.5496877)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fv4w7"]
+points = PackedVector3Array(-4, -6, -0.026764648, -4, -6, 0.17373736, -4, 6, -0.026764648, 4, -6, -0.026764648, 4, -6, 0.17373736, -4, 6, 0.17373736, 4, 6, -0.026764648, 4, 6, 0.17373736)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fvag4"]
+points = PackedVector3Array(-4, -6, -0.5496877, -4, -6, -0.026815772, -4, 6, -0.5496877, 4, -6, -0.5496877, 4, -6, -0.026815772, -4, 6, -0.026815772, 4, 6, -0.5496877, 4, 6, -0.026815772)
 
 [node name="Node3D" type="Node3D"]
 
@@ -41,3 +59,38 @@ transform = Transform3D(0.0064638336, 0.9882524, -0.15269381, -0.041797265, 0.15
 
 [node name="Player" parent="." instance=ExtResource("1_2dftf")]
 transform = Transform3D(0.15976061, 0, -0.9871558, 0, 1, 0, 0.9871558, 0, 0.15976061, -8.134576, 1.5, 10.001197)
+
+[node name="Node3D" parent="." instance=ExtResource("3_bcbcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7095962, 0.5, 9.1227865)
+
+[node name="Scoreboard" parent="." instance=ExtResource("4_js7pq")]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("5_eu7l1")]
+transform = Transform3D(-0.021278465, 0, -1.0049635, 0, 0.26430756, 0, 0.7997877, 0, -0.026737196, 11.709961, 2.7595885, 45.898087)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_grass_dark_football_field_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_grass_dark_football_field_0/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_p1v5b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_base_football_field_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_base_football_field_0/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_wygdx")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_football_field_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_football_field_0/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_bah7m")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_ground_dark_football_field_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_ground_dark_football_field_0/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fv4w7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_ground_light_football_field_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/Sketchfab_model/3c92378fb6dc4f0c8b41171ce6a1a9c9_fbx/RootNode/Cube/Cube_ground_light_football_field_0/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_fvag4")
+
+[editable path="Sketchfab_Scene"]
